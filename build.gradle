@@ -19,6 +19,7 @@ managedVersioning {
             workflowDispatch.set(true)
             gradleJob {
                 name.set 'build'
+                javaVersion = '21'
                 step {
                     setupGitUser()
                 }
@@ -46,7 +47,7 @@ println "Building: $version"
 
 java {
     toolchain {
-        languageVersion = JavaLanguageVersion.of(17)
+        languageVersion = JavaLanguageVersion.of(21)
     }
     withSourcesJar()
 }

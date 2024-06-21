@@ -1,3 +1,4 @@
+//file:noinspection unused
 package org.groovymc.groovyduvet.test
 
 import blue.endless.jankson.JsonGrammar
@@ -59,7 +60,7 @@ final json = CodecRetriever[Test2].encodeStart(ObjectOps.instance, new Test2(
         BuiltInRegistries.BLOCK.getKey(Blocks.DIRT),
         [new Test3(new char[] {'t','e','s','t'})],
         UniformInt.of(3,6)
-)).getOrThrow(false, {})
+)).getOrThrow()
 
 println JsonOutput.prettyPrint(JsonOutput.toJson(json))
 
@@ -94,11 +95,11 @@ class TestTupleCodecBuilder {
 
 final map = TestTupleCodecBuilder.$CODEC.encodeStart(ObjectOps.instance,
         new TestTupleCodecBuilder(1,2,3,4,5,6,7,8,9,
-                10,11,12,13,14,15,16,17,18)).getOrThrow(false, {})
+                10,11,12,13,14,15,16,17,18)).getOrThrow()
 println JsonOutput.prettyPrint(JsonOutput.toJson(map))
-println CodecRetriever[TestTupleCodecBuilder].decode(ObjectOps.instance,map).getOrThrow(false, {})
+println CodecRetriever[TestTupleCodecBuilder].decode(ObjectOps.instance,map).getOrThrow()
 
-println BuiltInRegistries.BLOCK[new ResourceLocation('stone')]
+println BuiltInRegistries.BLOCK[ResourceLocation.withDefaultNamespace('stone')]
 
 //noinspection GroovyAssignabilityCheck
 EntityTrackingEvents.START_TRACKING << ({ entity, player ->
@@ -142,11 +143,11 @@ class TestCommentedCodec {
 println TestCommentedCodec.$CODEC
 
 final toml = TestCommentedCodec.$CODEC.encodeStart(TomlConfigOps.COMMENTED,
-        new TestCommentedCodec('Stuff',5,3.0,[new TestStruct(3),new TestStruct(5)])).getOrThrow(false, {})
+        new TestCommentedCodec('Stuff',5,3.0,[new TestStruct(3),new TestStruct(5)])).getOrThrow()
 println new TomlWriter().writeToString(toml as UnmodifiableCommentedConfig)
 
 final jankson = TestCommentedCodec.$CODEC.encodeStart(JanksonOps.COMMENTED,
-        new TestCommentedCodec('Stuff',5,3.0,[new TestStruct(3),new TestStruct(5)])).getOrThrow(false, {})
+        new TestCommentedCodec('Stuff',5,3.0,[new TestStruct(3),new TestStruct(5)])).getOrThrow()
 println jankson.toJson(JsonGrammar.builder().withComments(true)
         .bareSpecialNumerics(true)
         .printTrailingCommas(true)
@@ -163,6 +164,6 @@ class TestDefaultValues {
     float floatValue = 3.0
 }
 
-println TestDefaultValues.$CODEC.encodeStart(ObjectOps.instance, new TestDefaultValues()).getOrThrow(false, {})
-println TestDefaultValues.$CODEC.encodeStart(ObjectOps.instance, new TestDefaultValues("another_test")).getOrThrow(false, {})
-println TestDefaultValues.$CODEC.encodeStart(ObjectOps.instance, new TestDefaultValues("test",3)).getOrThrow(false, {})
+println TestDefaultValues.$CODEC.encodeStart(ObjectOps.instance, new TestDefaultValues()).getOrThrow()
+println TestDefaultValues.$CODEC.encodeStart(ObjectOps.instance, new TestDefaultValues("another_test")).getOrThrow()
+println TestDefaultValues.$CODEC.encodeStart(ObjectOps.instance, new TestDefaultValues("test",3)).getOrThrow()

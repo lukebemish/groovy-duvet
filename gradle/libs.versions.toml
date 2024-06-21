@@ -1,28 +1,28 @@
 [versions]
 # The latest versions are available at https://lambdaurora.dev/tools/import_quilt.html
-minecraft = "1.20.4"
-fabric_loader = "0.15.3"
-fabric_api = "0.92.0+1.20.4"
+minecraft = "1.21"
+fabric_loader = "0.15.11"
+fabric_api = "0.100.3+1.21"
 parchment_minecraft = "1.20.2"
 parchment_mappings = "2023.12.10"
-fabric_loom = "1.5.8"
-cgl = "0.4.1"
+fabric_loom = "1.7.1"
+cgl = "0.5.1"
 autoservice = "1.1.1"
 autoextension = "0.1.1"
-mdg = "2.0.0-beta.16"
+mdg = "2.0.0-beta.29"
 minotaur = "2.8.4"
 curseforgegradle = "1.1.16"
-managedversioning = "1.2.8"
-nexuspublish = "2.0.0-rc-1"
+managedversioning = "1.2.9"
+nexuspublish = "2.0.0"
 
-groovyduvet_core = "3.1.6"
+groovyduvet_core = "3.1.7"
 
 [libraries]
 minecraft = { module = "com.mojang:minecraft", version.ref = "minecraft" }
 fabric_loader = { module = "net.fabricmc:fabric-loader", version.ref = "fabric_loader" }
 fabric_api = { module = "net.fabricmc.fabric-api:fabric-api", version.ref = "fabric_api" }
 
-cgl = { module = "org.groovymc.cgl:cgl-1.20.4-fabric", version.ref = "cgl" }
+cgl = { module = "org.groovymc.cgl:cgl-1.21-fabric", version.ref = "cgl" }
 
 autoservice = { module = "com.google.auto.service:auto-service", version.ref = "autoservice" }
 autoextension = { module = "dev.lukebemish.autoextension:autoextension", version.ref = "autoextension" }
